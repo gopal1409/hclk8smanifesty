@@ -4,7 +4,7 @@ metadata:
   name: mem-cpu-demo 
 spec:
   hard:
-    request.cpu: "1"
-    request.memory = 1Gi
-    limit.cpu: "2"
+    requests.cpu: "1"
+    requests.memory: 1Gi
+    limits.cpu: "2"
     limits.memory: 2Gi
