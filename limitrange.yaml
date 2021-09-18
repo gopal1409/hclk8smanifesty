@@ -1,0 +1,16 @@
+apiVersion: v1 #this is the api version
+kind: LimitRange #we are using a resource quota in k8s
+metadata:
+  name: mem-cpu-limitrange #using metadata we are giving a refrence to your resource quota
+spec: #i am definig the specification about my resource quota
+  limits:
+  - default
+      cpu: 800m 
+    defaultRequest:
+      cpu: 800m #if a container does not specify cpu request limist k8s will assign the default cpu request and limit to the container
+  - max:
+      cpu: "800m"
+    min:
+      cpu: "200m" #it will ensure that a containter request always greater than or euqal to 200 milicpu
+    type: container
+    #whenever you are defining default and defaultrequest need to match

@@ -1,10 +1,13 @@
-apiVersion: v1 
-kind: ResourceQuota 
+#any manifest file you create in k8s
+#kubectl apply -f nameoftheyamlfile
+apiVersion: v1 #this is the api version
+kind: ResourceQuota #we are using a resource quota in k8s
 metadata:
-  name: mem-cpu-demo 
-spec:
-  hard:
-    requests.cpu: "1"
+  name: mem-cpu-demo #using metadata we are giving a refrence to your resource quota
+spec: #i am definig the specification about my resource quota
+  hard: #hard limit. 
+    requests.cpu: "1" #it is what the container is guranteed to get 
+    #k8s will also ensure that your pod is launched on the node where minimum 1 core cpu is avaialble
     requests.memory: 1Gi
-    limits.cpu: "2"
+    limits.cpu: "2" #this will ensure that a container will never goes above this value 
     limits.memory: 2Gi
