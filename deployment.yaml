@@ -5,13 +5,14 @@ metadata:
   name: nginx-deployment #i am provding the name of the deployment. 
 spec: #master specification #replicas,#selector#template
   replicas: 3 #create three pod
-  strategy:
-    type: RollingUpdate
-      maxSurge: 2 #how many pod we can add at a time
-      maxUnavailable: 0 #how many pod can be unavaialbe whiel deploying
   selector: #to manage those three pod
     matchLabels: #spec.selector.matchlabel field is like a map(key:value) pair
       app: nginx #key value match express
+  strategy:
+    type: RollingUpdate
+    rollingUpdate:
+      maxSurge: 2 #how many pod we can add at a time
+      maxUnavailable: 0 #how many pod can be unavaialbe whiel deploying
   template: #inside the pod we need to create container
     metadata:
       labels:
