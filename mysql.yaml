@@ -3,7 +3,7 @@ kind: Deployment
 metadata:
   name: mysql-gopal
 spec:
-  replicas: 2 #if due to some reason the node we are using go down. it should start automatically ina  different machine
+  replicas: 1 #if due to some reason the node we are using go down. it should start automatically ina  different machine
   selector:
     matchLabels:
       app: mysql
