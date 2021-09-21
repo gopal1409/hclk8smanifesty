@@ -5,9 +5,8 @@ metadata:
 spec:
   storageClassName: hclstorage #mapping happen through storaclassname
   capacity:
-    storage: 10Gi #this is thin provisioning
+    storage: 3Gi #this is thin provisioning
   accessModes:
     - ReadWriteOnce #ReadWritemany #Read
   hostPath:
     path: /mnt/data
-  
