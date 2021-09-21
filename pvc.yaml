@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: task-pv-claim
+spec:
+  storageClassName: hclstorage 
+  resources:
+    requests:
+      storage: 10Gi #3GB
+  accessModes:
+    - ReadWriteOnce
