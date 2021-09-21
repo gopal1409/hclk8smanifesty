@@ -23,5 +23,3 @@ spec:
                 key: password
           ports:
             - containerPort: 3306
-          volumeMounts:
-            - name: 
