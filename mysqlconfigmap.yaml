@@ -3,6 +3,6 @@ kind: ConfigMap
 metadata:
   name: usermanagement-db-creation-script
 data:
-  mysql_usermgmt.sql: |-
-    DROP DATABASE IF EXISTS webappdb;
+  mysql_usermgmt.sql: |- #this si line break in go lang python
+    DROP DATABASE IF EXISTS webappdb; 
     CREATE DATABASE webappdb;
