@@ -23,3 +23,16 @@ spec:
                 key: password
           ports:
             - containerPort: 3306
+          volumeMounts: #this is inside your container
+            - name: mysql-data 
+              mountPath: /var/lib/mysql #the path inside your container
+            - name: usermgmt-script 
+              mountPath: /docker-entrypoint-initdb.d
+      volumes:
+        - name: mysql-data 
+          persistentVolumeClaim:
+            claimName: task-pv-claim
+        - name: usermgmt-script 
+          configMap:
+            name: usermanagement-db-creation-script
+
