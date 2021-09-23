@@ -1,0 +1,66 @@
+apiVersion: apps/v1
+kind: DeamonSet
+metadata: 
+  name: fluentd-system
+  namespaces: kube-system
+  labels:
+    k8s-app: fluentd-logging
+spec:
+  selector:
+    matchLabels:
+      name: fluentd-eleasticsearch
+  template:
+    metadata:
+      labels:
+        name: fluentd-eleasticsearch
+    spec:
+      tolerations:
+       #this toleration is to have the deamonset runnable on master node. if you dont want to run the deamon set in master node remove this tolleration
+      - key: node-role.kubernetes.io/master
+        operator: Exists
+        effect: NoSchedule
+      containers:
+      - name: fluentd-eleasticsearch
+        image: quay.io/fluentd_elasticsearch/fluentd:v2.5.2
+        resources:
+          limits:
+            memory: 200Mi
+          requests:
+            cpu: 100m
+            memory: 200Mi 
+        volumeMounts: #this is inside your cotainer
+        - name: varlog
+          mountPath: /var/log
+        - name: varlibdockercontainers
+          mountPath: /var/lib/docker/containers
+          readOnly: true  
+      volumes: #on your node machine where it will write the log files
+        - name: varlog
+          hostPath:
+            Path: /var/log
+        - name: varlibdockercontainers
+          hostPath: #this is the node machine path
+            Path: /var/lib/docker/containers
+        
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
