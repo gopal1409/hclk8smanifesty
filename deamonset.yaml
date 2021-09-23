@@ -35,12 +35,12 @@ spec:
           mountPath: /var/lib/docker/containers
           readOnly: true  
       volumes: #on your node machine where it will write the log files
-        - name: varlog
-          hostPath:
-            Path: /var/log
-        - name: varlibdockercontainers
-          hostPath: #this is the node machine path
-            Path: /var/lib/docker/containers
+      - name: varlog
+        hostPath:
+          path: /var/log
+      - name: varlibdockercontainers
+        hostPath: #this is the node machine path
+          path: /var/lib/docker/containers
         
 
 
