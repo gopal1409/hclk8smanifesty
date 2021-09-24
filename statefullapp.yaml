@@ -7,7 +7,7 @@ spec:
     matchLabels:
       app: stateapp
   serviceName: statefullservice
-  replicas: 3
+  replicas: 2
   template:
     metadata: 
       labels:
