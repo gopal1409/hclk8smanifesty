@@ -1,0 +1,21 @@
+apiVersion: apps/v1 
+kind: StatefulSet 
+metadata:
+  name: web
+spec:
+  selector:
+    matchLabels:
+      app: stateapp
+  serviceName: statefullservice
+  replicas: 3
+  template:
+    metadata: 
+      labels:
+        app: stateapp
+    spec:
+      containers:
+        - name: nginx 
+          image: nginx 
+          ports:
+          - containerPort: 80
+            name: web
