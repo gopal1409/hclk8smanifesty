@@ -10,7 +10,7 @@ spec:
       containers:
       - name: consumer
         image: lpatruno/k8-model:latest
-        command: ["python3","train.py"
+        command: ["python3","train.py"]
         env:
         - name: AWS_ACCESS_KEY_ID
           value: "AKIAVS5LHH6SJWQN4NZH"
