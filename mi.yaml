@@ -13,7 +13,7 @@ spec:
         command: ["python3","train.py"]
         env:
         - name: AWS_ACCESS_KEY_ID
-          value: "AKIAVS5LHH6SJWQN4NZH"
+          value: ""
         - name: AWS_SECRET_ACCESS_KEY
-          value: "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" 
+          value: "" 
       restartPolicy: Never
