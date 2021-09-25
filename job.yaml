@@ -1,10 +1,10 @@
 apiVersion: batch/v1
 kind: Job
 metadata:
-  name: myjob
+  name: twitter-consumer
 spec:
-  parallelism: 5
-  
+  backoffLimit: 5
+  activeDeadlineSeconds: 20
   template:
     metadata:
       name: consumer
