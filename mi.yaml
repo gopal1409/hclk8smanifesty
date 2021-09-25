@@ -1,0 +1,19 @@
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: train-job
+spec:
+  template:
+    metadata:
+      name: consumer
+    spec:
+      containers:
+      - name: consumer
+        image: lpatruno/k8-model:latest
+        command: ["python3","train.py"
+        env:
+        - name: AWS_ACCESS_KEY_ID
+          value: "AKIAVS5LHH6SJWQN4NZH"
+        - name: AWS_SECRET_ACCESS_KEY
+          value: "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" 
+      restartPolicy: Never
